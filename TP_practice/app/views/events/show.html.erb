@@ -1,0 +1,35 @@
+<%= @splitId %><br>
+<%= @title %><br>
+<%= @venueAddress %><br>
+<%= @address %><br>
+----------------<br>
+<%= @dayShowing %><br>
+<%= @timeShowing %><br>
+<%= @eventUrl %><br>
+<%= @country %>
+
+test
+
+
+
+<form action='/events' method='POST'>
+  <h2>Add an event:</h2>
+  <label>Name</label><br>
+    <input name='name' value='<%= @eventName  %>'><br>
+  <label>Address</label><br>
+    <input name='location' value = '<%= @eventLocation %>'><br>
+  <label>Date</label><br>
+    <input name='date' value='<%= @eventDate %>'><br>
+  <label>Time</label><br>
+    <input name='time' value = '<%= @eventTime  %>'><br>
+  <label>Url</label><br>
+    <input name='eventUrl' value = '<%= @eventUrl  %>'><br>
+  <label>Pick a trip to add to</label><br>
+    <select name = "trip">
+    <% @trips.each do |trip|  %>
+     <option name="trip"><%= trip['trip_name']  %></option>
+     <% end %>
+     </select>
+  <button>Submit</button>
+</form>
+<a href="/trips">Go Home</a>

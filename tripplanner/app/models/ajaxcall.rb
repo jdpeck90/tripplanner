@@ -1,2 +1,0 @@
-class Ajaxcall < ApplicationRecord
-end
