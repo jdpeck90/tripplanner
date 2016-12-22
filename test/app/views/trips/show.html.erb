@@ -1,0 +1,61 @@
+ <h1>Here are your trips</h1>
+  <% @trips.each do |trip|  %>
+    <h1><%= trip['trip_name']  %></h1>
+     <%= button_to 'Delete the trip', trip, method: :delete %><br>
+    <h3>Flights</h3>
+    <% @subFlight = @flights.where(trip_id: trip['id']) %>
+    <% @subFlight.each do |flight| %>
+    <p>Price is <%=flight['price']  %></p>
+     <p>ID is <%=flight['id']  %></p>
+    <p>Departure time and date (from origin) <%=flight ['departuredate_time']  %></p>
+    <p>Arrival time and date (to destination) <%=flight ['arrivaldate_time']  %></p>
+    <p>Flight class (to destination) <%=flight ['flightclass']  %></p>
+    <p>Departure airport (from origin to destination)<%=flight ['departure_airport']  %></p>
+    <p>Arrival airport (from origin to destination)<%=flight ['arrival_airport']  %></p>
+    <p>Flight number (from origin to destination)<%=flight ['flight_number']  %></p>
+    <p>Airline (from origin to destination)<%=flight ['airline']  %></p>
+    <p>Departure time (from destination to origin)<%=flight ['returnairportdepart']  %></p>
+    <p>Arrival airport (from destination to origin)<%=flight ['returnairportarrive']  %></p>
+    <p>Arrival airline (from destination to origin)<%=flight ['airlinereturn']  %></p>
+    <p>Arrival flight number (from destination to origin)<%=flight ['flightnumberreturn']  %></p>
+      <%= button_to 'Delete me', flight, method: :delete %><br>
+    <% end %>
+    <h3>Restaurants to visit</h3>
+     <% @subRest = @restaurant.where(trip_id: trip['id']) %>
+    <% @subRest.each do |rest| %>
+    <p>Name is <%=rest['name']  %></p>
+    <p>Address is <%=rest['address']  %></p>
+    <p>Full review: <%=rest['restaurant_url']  %></p>
+    <p>Your comments: <%=rest['description']  %></p>
+      <%= button_to 'Delete me', rest, method: :delete %><br>
+     <% end %>
+    <h3>Attractions to visit</h3>
+     <% @subAttraction = @attraction.where(trip_id: trip['id']) %>
+    <% @subAttraction.each do |attraction| %>
+    <p>Name is <%=attraction['name']  %></p>
+    <p>Address is <%=attraction['address']  %></p>
+    <p>Full review: <%=attraction['restaurant_url']  %></p>
+    <p>Your comments: <%=attraction['description']  %></p>
+      <%= button_to 'Delete me', attraction, method: :delete %><br>
+     <% end %>
+    <h3>Hotels</h3>
+     <% @subHotel = @hotel.where(trip_id: trip['id']) %>
+    <% @subHotel.each do |hotel| %>
+    <p>Name is <%=hotel['name']  %></p>
+    <p>Address is <%=hotel['address']  %></p>
+    <p>Phone: <%=hotel['phone']  %></p>
+    <p>Rate: <%=hotel['rate']  %></p>
+      <%= button_to 'Delete me', hotel, method: :delete %><br>
+     <% end %>
+     <h3>Events</h3>
+     <% @subEvent = @event.where(trip_id: trip['id']) %>
+    <% @subEvent.each do |event| %>
+    <p>Name is <%=event['name']  %></p>
+    <p>Address is <%=event['address']  %></p>
+    <p>Date: <%=event['date']  %></p>
+    <p>Time: <%=event['time']  %></p>
+    <p>Event URL: <%=event['event_url']  %></p>
+      <%= button_to 'Delete me', event, method: :delete %><br>
+     <% end %>
+    <p>Location <%= trip['locations']  %></p>
+     <% end %>

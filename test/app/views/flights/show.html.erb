@@ -1,0 +1,60 @@
+<h1>Add A Flight</h1>
+<form action='/flights' method='POST'>
+    <label>Full Price</label><br>
+    <input name='price' value='<%=@price  %>'><br>
+
+    <label>Departure time and date (from origin)</label><br>
+    <input name='departuredate_time' value='<%=@dateofdeparturefromorigin  %>'><br>
+
+    <label>Arrival time and date (to destination)</label><br>
+    <input name='arrivaldate_time' value='<%=@dateofarrivaltodestination  %>'><br>
+
+    <label>Flight class (to destination)</label><br>
+    <input name='flightclass' value='<%=@classofflighttodestination%>'><br>
+
+
+    <label>Departure airport (from origin to destination)</label><br>
+    <input name='departure_airport' value='<%=@airportyouleavefromtogettodestination%>'><br>
+
+    <label>Arrival airport (from origin to destination)</label><br>
+    <input name='arrival_airport' value='<%=@arrivaleairporttodestination%>'><br>
+
+    <label>Flight number (from origin to destination)</label><br>
+    <input name='flight_number' value='<%=@todestinationflightnumber%>'><br>
+
+    <label>Airline (from origin to destination)</label><br>
+    <input name='airline' value='<%=@outboundairline%>'><br>
+
+    <label>Departure time (from destination to origin)</label><br>
+    <input name='returnleavedate' value='<%=@departuretimefromdestination  %>'><br>
+
+    <label>Arrival time (from destination to origin)</label><br>
+    <input name='returnarrivaldate' value='<%=@arrivaltimefromdestination  %>'><br>
+
+    <label>Flight class (from destination)</label><br>
+    <input name='classreturn' value='<%=@classofflightfromdestination%>'><br>
+
+    <label>Departure airport (from destination to origin)</label><br>
+    <input name='returnairportdepart' value='<%=@departureairportfromdestination%>'><br>
+
+    <label>Arrival airport (from destination to origin)</label><br>
+    <input name='returnairportarrive' value='<%=@arrivalairportfromdestination%>'><br>
+
+    <label>Arrival airline (from destination to origin)</label><br>
+    <input name='airlinereturn' value='<%=@inboundairline%>'><br>
+
+
+    <label>Arrival flight number (from destination to origin)</label><br>
+    <input name='flightnumberreturn' value='<%=@flighnumberfromdestination%>'><br>
+
+    <select name = "trip">
+    <% @trips.each do |trip|  %>
+     <option name="trip"><%= trip['trip_name']  %></option>
+
+     <% end %>
+     </select>
+
+  <button>Submit</button>
+</form>
+<a href="/trips">Go Home</a>
+
