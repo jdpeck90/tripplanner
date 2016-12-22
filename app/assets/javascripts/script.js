@@ -1,90 +1,9 @@
-console.log("script loaded---")
+console.log("script loaded")
 
 
 $('#yoyo').click(function(event){
 console.log('hi')
 })
-
-
-$('#newbutton').click(function(event) {
-  event.preventDefault();
-console.log('test')
-var $eventLocation = $('#eventlocation').val()
-var $eventKeyword = $('#keyword').val()
-var $eventDate = $('#eventdate').val()
-var multiwordLocation = function(location){
-    var words = location.split(" ")
-    if(words.length>1){
-      return words.join("+")
-    } else {
-      return location
-    }
-}
-
-var eventUrl = 'http://api.eventful.com/rest/events/search?...&keywords='+$eventKeyword+'&location='+multiwordLocation($eventLocation)+'&date='+$eventDate+'&app_key=bBnC2nhp4zqNBB4w'
-console.log(eventUrl)
-$.ajax({
-  type: "POST",
-  url: '/ajaxcalls',
-  data: {url: eventUrl}
-}).done(function(data){
-  appendAllInfoEvents(data.event.search.events.event)
-  console.log('this file')
-});
-
-
-});
-
-
-
-var appendAllInfoEvents = function(events){
-  var counter = 0;
-  for(var i = 0; i < events.length; i++){
-    var event = events[counter]
-    console.log(event,'event')
-  var $eventDiv = $('<div class="eventDiv">');
-  var $eventUl = $('<ul>');
-  var split = event.start_time.split(" ")
-  var dayShowing = split[0]
-  var timeShowing = split[1]
-
-var title = event.title.replace(/ /g, '')
-var venueAddress = event.venue_address.replace(/ /g, '')
-var eUrl1 = event.venue_url.replace(/\//g, '+')
-var eUrl2 = eUrl1.replace(/\./g, 'Q')
-var splitUrl = eUrl2.split('?')
-console.log(splitUrl)
-resultDiv = $('<div class="col-md-3 col-md-offset-2 opaque2 whtTxt"></div>')
-results = $('<ul class="list-unstyled"></ul>');
-
-
-  var urlIDEvents = title + '%20'+ venueAddress + event.city_name + event.region_name  + event.country_abbr + '%20' + dayShowing + '%20' + timeShowing + '%20' + splitUrl[0]
-  var namelist = $('<a href=/events/'+urlIDEvents+'>'+event.venue_name+'</a>');
- $("#body").css("background-image", "url('http://www.intrawallpaper.com/static/images/abstract-mosaic-background.png')");
-    $(".opaque").hide();
-  $('body').append(resultDiv)
-  $(resultDiv).append(results)
-  // $($eventUl).append('<li>Image: <img src="'+event.image.medium.url+'"></li>')
-  $(results).append(namelist)
-  $(results).append('<li>Number of Days: '+event.all_day+'</li>')
-  $(results).append('<li>City Name: '+event.city_name+'</li>')
-  $(results).append('<li>Country: '+event.country_name+'</li>')
-  $(results).append('<li>Latitude: '+event.latitude+'</li>')
-  $(results).append('<li>Longitude: '+event.longitude+'</li>')
-  $(results).append('<li>Postal Code: '+event.postal_code+'</li>')
-  $(results).append('<li>State: '+event.region_name+'</li>')
-  $(results).append('<li>Title: '+event.title+'</li>')
-  $(results).append('<li>Venue: '+event.venue_address+'</li>')
-  $(results).append('<li>Venue Link:<a href="'+event.venue_url+'">'+event.venue_name+'</a></li>')
-  $(results).append('<li>Day Showing: '+dayShowing+'</li>')
-  $(results).append('<li>Time Showing: '+timeShowing+'</li>')
-  $(results).append('<li>Description: '+event.description+'</li>')
-
-  counter++
-  }
-
-
-}
 
 
 getAllInfoFourSquare = function(data) {
@@ -185,26 +104,9 @@ appendResults = function(data){
 
 appendAllInfoFlights = function(data){
     for(i=0;i<10;i++){
-    resultDiv = $('<div></div>')
-    results = $('<ul></ul>');
-    inboundpricelist = $('<li></li>');
-    inboundarrivelist = $('<li></li>');
-    inbounddepartslist = $('<li></li>');
-    inboundclasslist = $('<li></li>');
-    inboundseatslist = $('<li></li>');
-    inbounddestinationairportlist = $('<li></li>');
-    inboundoriginairportlist = $('<li></li>');
-    inboundflightnumberlist = $('<li></li>');
-    inboundairlinelist = $('<li></li>');
-    outboundpricelist = $('<li></li>');
-    outboundarrivelist = $('<li></li>');
-    outbounddepartslist = $('<li></li>');
-    outboundclasslist = $('<li></li>');
-    outboundseatslist = $('<li></li>');
-    outbounddestinationairportlist = $('<li></li>');
-    outboundoriginairportlist = $('<li></li>');
-    outboundairlinelist = $('<li></li>');
-    outboundflightnumberlist = $('<li></li>');
+    resultDiv = $('<div class="col-md-3 col-md-offset-2 opaque2 whtTxt"></div>')
+    results = $('<ul class="list-unstyled"></ul>');
+
 
     inboundprice = data.results[i].fare.total_price
     inboundarrive = data.results[i].itineraries[0].inbound.flights[0].arrives_at
@@ -227,43 +129,24 @@ appendAllInfoFlights = function(data){
     outboundairline =  data.results[i].itineraries[0].outbound.flights[0].marketing_airline
 
 
-    inboundpricelist.text(inboundprice)
-    inboundarrivelist.text(inboundarrive)
-    inbounddepartslist.text(inbounddeparts)
-    inboundclasslist.text(inboundclass)
-    inboundseatslist.text(inboundseats)
-    inbounddestinationairportlist.text(inbounddestinationairport)
-    inboundoriginairportlist.text(inboundoriginairport)
-    inboundairlinelist.text(inboundairline)
-    inboundflightnumberlist.text(inboundflightnumber)
-    outboundpricelist.text(outboundprice)
-    outboundarrivelist.text(outboundarrive)
-    outbounddepartslist.text(outbounddeparts)
-    outboundclasslist.text(outboundclass)
-    outboundseatslist.text(outboundseats)
-    outbounddestinationairportlist.text(outbounddestinationairport)
-    outboundoriginairportlist.text(outboundoriginairport)
-    outboundairlinelist.text(outboundairline)
-    outboundflightnumberlist.text(outboundflightnumber)
-
-    results.append(inboundpricelist)
-    results.append(inboundarrivelist)
-    results.append(inbounddepartslist)
-    results.append(inboundclasslist)
-    results.append(inboundseatslist)
-    results.append(inbounddestinationairportlist)
-    results.append(inboundoriginairportlist)
-    results.append(inboundairlinelist)
-    results.append(inboundflightnumberlist)
-    results.append(outboundpricelist)
-    results.append(outboundarrivelist)
-    results.append(outbounddepartslist)
-    results.append(outboundclasslist)
-    results.append(outboundseatslist)
-    results.append(outbounddestinationairportlist)
-    results.append(outboundoriginairportlist)
-    results.append(outboundairlinelist)
-    results.append(outboundflightnumberlist)
+    results.append('<li>' + 'Price: ' + inboundprice + '</li>')
+    results.append('<li>' +'Arrival: ' + inboundarrive + '</li>')
+    results.append('<li>' + 'Departure: ' + inbounddeparts + '</li>')
+    results.append('<li>' + 'Class: ' + inboundclass + '</li>')
+    results.append('<li>' + 'Seats: ' + inboundseats + '</li>')
+    results.append('<li>' + 'Destination Airport: ' + inbounddestinationairport  + '</li>')
+    results.append('<li>' + 'Origin Airport: ' + inboundoriginairport  + '</li>')
+    results.append('<li>' + 'Airline Designator: ' + inboundairline + '</li>')
+    results.append('<li>' + 'Flight Number: ' + inboundflightnumber + '</li><br>')
+    results.append('<li>' + 'Price: ' + outboundprice + '</li>')
+    results.append('<li>' + 'Arrival : ' + outboundarrive + '</li>')
+    results.append('<li>' + 'Departure : ' + outbounddeparts + '</li>')
+    results.append('<li>' + 'Class: ' + outboundclass + '</li>')
+    results.append('<li>' + 'Seats: ' + outboundseats + '</li>')
+    results.append('<li>' + 'Desination Airport: ' + outbounddestinationairport + '</li>')
+    results.append('<li>' + 'Origin Airport: ' + outboundoriginairport + '</li>')
+    results.append('<li>' + 'Airline Designator: ' + outboundairline + '</li>')
+    results.append('<li>' + 'Flight Number: ' + outboundflightnumber + '</li>')
 
     resultDiv.append(results)
 
@@ -277,6 +160,8 @@ appendAllInfoFlights = function(data){
 $('#submit2').click(function(event) {
   console.log('hi')
     event.preventDefault();
+    $("#body").css("background-image", "url('http://www.intrawallpaper.com/static/images/abstract-mosaic-background.png')");
+    $(".opaque").hide();
     ORIGIN = $('#origin').val()
     DESTINATION = $('#destination').val()
     RETURNDATE = $('#returndate').val()
@@ -336,6 +221,8 @@ getAllInfoFlights = function(data) {
 
 $('#submit3').click(function(event) {
     event.preventDefault();
+    $("#body").css("background-image", "url('http://www.intrawallpaper.com/static/images/colorful-triangles-background_yB0qTG6.jpg')");
+    $(".opaque").hide();
     HOTELLOCATION = $('#hotellocation').val()
     HOTELCHECKINDATE = $('#checkin').val()
     HOTELCHECKOUTDATE = $('#checkout').val()
@@ -345,16 +232,9 @@ $('#submit3').click(function(event) {
 
 appendAllHotelInfo = function(data){
   for(i=0;i<10;i++){
-    resultDiv = $('<div></div>')
-    results = $('<ul></ul>');
-    itemName = $('<li></li>');
-    itemAddress1 = $('<li></li>');
-    itemAddress2 = $('<li></li>');
-    itemAddress3 = $('<li></li>');
-    itemAddress4 = $('<li></li>');
-    itemAddress5 = $('<li></li>');
-    itemPrice = $('<li></li>');
-    itemContact = $('<li></li>');
+    resultDiv = $('<div class="col-md-3 col-md-offset-2 opaque2 whtTxt"></div>')
+    results = $('<ul class="list-unstyled"></ul>');
+
     name = data.results[i].property_name
     addressLine1 = data.results[i].address.line1
     addressLine2 = data.results[i].address.city
@@ -363,23 +243,13 @@ appendAllHotelInfo = function(data){
     addressLine5 = data.results[i].address.country
     itemPricee = data.results[i].min_daily_rate.amount
     itemContactt = data.results[i].contacts[0].detail
-    itemName.text(name)
-    itemAddress1.text(addressLine1)
-    itemAddress2.text(addressLine2)
-    itemAddress3.text(addressLine3)
-    itemAddress4.text(addressLine4)
-    itemAddress5.text(addressLine5)
-    itemPrice.text(itemPricee)
-    itemContact.text(itemContactt)
 
-    results.append(itemName);
-    results.append(itemAddress1);
-    results.append(itemAddress2);
-    results.append(itemAddress3);
-    results.append(itemAddress4);
-    results.append(itemAddress5);
-    results.append(itemPrice);
-    results.append(itemContact);
+    results.append('<li>' + 'Hotel: ' + name + '</li>');
+    results.append('<li>' + 'Address: ' + addressLine1+ '<br>'
+      + addressLine2 + ', ' + addressLine3 + '<br>' + addressLine4 +
+      ' ' + '(' + addressLine5 + ')' + '</li>');
+    results.append('<li>' + 'Lowest Daily Rate: ' + itemPricee + '</li>');
+    results.append('<li>' + 'Contact Number: ' + itemContactt + '</li>');
     resultDiv.append(results);
     $('body').append(resultDiv);
   }
@@ -397,6 +267,7 @@ randomizeBackground()
 
 var divToggle = function(){
 $(".toggle").click(function() {
+    $('#whatev').hide()
     var $toggled = $(this).attr('href');
     $($toggled).siblings(':visible').hide();
     $($toggled).toggle("slide", {direction: 'up'}, 750);
@@ -405,6 +276,7 @@ $(".toggle").click(function() {
   };
 divToggle()
 
+/*
 var calendarOptions = function(){
     var dateFormat = "yyyy/mm/dd",
       from = $( "#departuredate, #checkin" )
@@ -437,22 +309,17 @@ var calendarOptions = function(){
     }
 }
 calendarOptions()
-
+*/
 var getLocation = function(){
            $(function() {
-            $( "#origin" ).autocomplete({
-               source: availableCities,
-               autoFocus:true
-            });$( "#destination" ).autocomplete({
-               source: availableCities,
-               autoFocus:true
-            });$( "#location" ).autocomplete({
-               source: availableCities,
-               autoFocus:true
-            });$( "#attractionlocation" ).autocomplete({
+            $( "#origin, #hotellocation, #destination, #location, #attractionlocation" ).autocomplete({
                source: availableCities,
                autoFocus:true
             });
-});
-}
+    });
+  }
 getLocation()
+
+
+
+

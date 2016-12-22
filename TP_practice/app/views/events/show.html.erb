@@ -1,15 +1,3 @@
-<%= @splitId %><br>
-<%= @title %><br>
-<%= @venueAddress %><br>
-<%= @address %><br>
-----------------<br>
-<%= @dayShowing %><br>
-<%= @timeShowing %><br>
-<%= @eventUrl %><br>
-<%= @country %>
-
-test
-
 
 
 <form action='/events' method='POST'>
@@ -25,11 +13,6 @@ test
   <label>Url</label><br>
     <input name='eventUrl' value = '<%= @eventUrl  %>'><br>
   <label>Pick a trip to add to</label><br>
-    <select name = "trip">
-    <% @trips.each do |trip|  %>
-     <option name="trip"><%= trip['trip_name']  %></option>
-     <% end %>
-     </select>
   <button>Submit</button>
 </form>
 <a href="/trips">Go Home</a>
