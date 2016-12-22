@@ -5,6 +5,7 @@ $('#yoyo').click(function(event){
 console.log('hi')
 })
 
+<<<<<<< HEAD
 /////////// EVENTS ///////////////
 $('#newbutton').click(function(event) {
   event.preventDefault();
@@ -86,6 +87,8 @@ results = $('<ul class="list-unstyled"></ul>');
 }
 ////////////////////
 
+=======
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
 
 getAllInfoFourSquare = function(data) {
     $.ajax({
@@ -98,6 +101,7 @@ getAllInfoFourSquare = function(data) {
 
         })
 }
+<<<<<<< HEAD
 getAllInfoAttraction = function(data) {
     $.ajax({
             url: "https://api.foursquare.com/v2/venues/explore?client_id=ZNEGNE4KLQ5OW03GEGIIDCS0XCZFCQE01S04NJVAN5R5LPCY&client_secret=CYYND5AXCAJ1SMQDNPZBHODBX1OEX3SQY4RBLPQKDAPXHQGT&near="+ll+"&sortByDistance=1&radius=500&query="+category+"&v=20161124&m=foursquare",
@@ -114,6 +118,10 @@ $('#ME').click(function(event) {
      $("#body").css("background-image", "url('http://www.intrawallpaper.com/static/images/color-wallpapers.jpg')");
     $(".opaque").hide();
     $('#homeNav').hide();
+=======
+$('#ME').click(function(event) {
+    event.preventDefault();
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
     category = $('#foodkeyword').val()
     category = category.split(' ');
     category = category.join('%20')
@@ -124,9 +132,12 @@ $('#ME').click(function(event) {
 })
 $('#ME2').click(function(event) {
     event.preventDefault();
+<<<<<<< HEAD
      $("#body").css("background-image", "url('http://www.intrawallpaper.com/static/images/awesome-rain-wallpaper_0_PB7IVa9.jpg')");
     $(".opaque").hide();
     $('#homeNav').hide();
+=======
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
     category = $('#attractionkeyword').val()
     category = category.split(' ');
     category = category.join('%20')
@@ -135,6 +146,7 @@ $('#ME2').click(function(event) {
     ll = ll.join("%20")
     getAllInfoFourSquare(category);
 })
+<<<<<<< HEAD
 $('#ME3').click(function(event) {
     event.preventDefault();
         $("#body").css("background-image", "url('http://www.intrawallpaper.com/static/images/awesome-rain-wallpaper_0_PB7IVa9.jpg')");
@@ -216,6 +228,28 @@ appendResultsAttraction = function(data){
   for(i=0;i<10;i++){
     resultDiv = $('<div class="col-md-4 col-md-offset-1 opaque2 whtTxt"></div>')
     results = $('<ul class="list-unstyled"></ul>');
+=======
+
+$('#clear').click(function(event) {
+   $('.col-md-6').remove();
+})
+
+// $('.dropdown-toggle').dropdown()
+
+$('li').mouseover(function(event){
+  $(this).addClass('active')
+})
+
+$('li').mouseout(function(event){
+  $('li').removeClass('active')
+})
+
+appendResults = function(data){
+  result = data.response.groups[0]
+  for(i=0;i<10;i++){
+    resultDiv = $('<div class="col-md-6"></div>')
+    results = $('<ul></ul>');
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
     item = $('<li></li>');
     itemAddress1 = $('<li></li>');
     itemAddress2 = $('<li></li>');
@@ -223,6 +257,7 @@ appendResultsAttraction = function(data){
     itemPrice = $('<li></li>');
     itemRating = $('<li></li>');
     itemHours = $('<li></li>');
+<<<<<<< HEAD
     urlli = $('<li></li>');
     reviewurl = data.response.groups[0].items[i].tips[0].canonicalUrl
     urlli.text(reviewurl)
@@ -231,6 +266,9 @@ appendResultsAttraction = function(data){
     tipli = $('<li></li>');
     tipli.text (tip)
     urlli.text(reviewurl)
+=======
+    name = result.items[i].venue.name;
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
     namer = JSON.stringify(name)
     namer = namer.split(' ');
     namer = namer.join('%20');
@@ -239,6 +277,7 @@ appendResultsAttraction = function(data){
     address1 = data.response.groups[0].items[i].venue.location.formattedAddress[0];
     address2 = data.response.groups[0].items[i].venue.location.formattedAddress[1];
     address3 = data.response.groups[0].items[i].venue.location.formattedAddress[2];
+<<<<<<< HEAD
     rating = data.response.groups[0].items[i].venue.rating
     ratingColor = data.response.groups[0].items[i].venue.ratingColor;
 
@@ -260,10 +299,30 @@ appendResultsAttraction = function(data){
     results.append(namelist);
     results.append(urlli)
      results.append(tipli)
+=======
+    // src = data.response.groups[0].items[i].venue.categories[0].icon.prefix+ data.response.groups[0].items[i].venue.categories[0].icon.suffix
+    // icon = $('<img src='+src+'>')
+    // price = data.response.groups[0].items[i].venue.price.message + data.response.groups[0].items[i].venue.price.tier;
+    rating = data.response.groups[0].items[i].venue.rating
+    ratingColor = data.response.groups[0].items[i].venue.ratingColor;
+    // item.text(name);
+    itemAddress1.text(address1 + ' ');
+    itemAddress2.text(address2 + ' ');
+    itemAddress3.text(address3 + ' ');
+    // itemPrice.text(price);
+    itemRating.text('Rating: '+rating);
+    itemRating.css('color', '#'+ratingColor)
+    addMeLink = $("<a href=/"+ll+'/'+namer+'>'+name+"</a>");
+    results.append(addMeLink);
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
     results.append(item);
     results.append(itemAddress1);
     results.append(itemAddress2);
     results.append(itemAddress3);
+<<<<<<< HEAD
+=======
+    // results.append(itemPrice);
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
     results.append(itemRating);
     results.append(itemHours);
     resultDiv.append(results);
@@ -274,12 +333,21 @@ appendResultsAttraction = function(data){
 }
 
 
+<<<<<<< HEAD
 
 appendAllInfoFlights = function(data){
     for(i=0;i<10;i++){
   resultDiv = $('<div class="col-md-3 col-md-offset-2 opaque2 whtTxt"></div>')
     results = $('<ul class="list-unstyled"></ul>');
 
+=======
+appendAllInfoFlights = function(data){
+    for(i=0;i<10;i++){
+    resultDiv = $('<div class="col-md-3 col-md-offset-2 opaque2 whtTxt"></div>')
+    results = $('<ul class="list-unstyled"></ul>');
+
+
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
     inboundprice = data.results[i].fare.total_price
     inboundarrive = data.results[i].itineraries[0].inbound.flights[0].arrives_at
     inbounddeparts = data.results[i].itineraries[0].inbound.flights[0].departs_at
@@ -299,6 +367,7 @@ appendAllInfoFlights = function(data){
     outboundflightnumber = data.results[i].itineraries[0].outbound.flights[0].flight_number
     outboundoriginairport = data.results[i].itineraries[0].outbound.flights[0].origin.airport
     outboundairline =  data.results[i].itineraries[0].outbound.flights[0].marketing_airline
+<<<<<<< HEAD
     inboundpriceParams = inboundprice.replace('.', 'P')
     inboundarriveParams = inboundarrive.replace(/ /g, '')
     inbounddepartsParams = inbounddeparts.replace(/ /g, '')
@@ -329,6 +398,11 @@ appendAllInfoFlights = function(data){
 
     results.append(listURL)
  results.append('<li>' + 'Price: ' + inboundprice + '</li>')
+=======
+
+
+    results.append('<li>' + 'Price: ' + inboundprice + '</li>')
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
     results.append('<li>' +'Arrival: ' + inboundarrive + '</li>')
     results.append('<li>' + 'Departure: ' + inbounddeparts + '</li>')
     results.append('<li>' + 'Class: ' + inboundclass + '</li>')
@@ -359,10 +433,15 @@ appendAllInfoFlights = function(data){
 $('#submit2').click(function(event) {
   console.log('hi')
     event.preventDefault();
+<<<<<<< HEAD
        event.preventDefault();
     $("#body").css("background-image", "url('http://www.intrawallpaper.com/static/images/abstract-mosaic-background.png')");
     $(".opaque").hide();
     $('#homeNav').hide();
+=======
+    $("#body").css("background-image", "url('http://www.intrawallpaper.com/static/images/abstract-mosaic-background.png')");
+    $(".opaque").hide();
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
     ORIGIN = $('#origin').val()
     DESTINATION = $('#destination').val()
     RETURNDATE = $('#returndate').val()
@@ -392,7 +471,10 @@ getAllInfoHotel = function(data) {
             method: 'GET'
         })
         .done(function(data) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
           appendAllHotelInfo(data)
 
           // appendResultsAmadeus(data)
@@ -410,7 +492,14 @@ getAllInfoFlights = function(data) {
         })
         .done(function(data) {
           appendAllInfoFlights(data)
+<<<<<<< HEAD
 
+=======
+          console.log(data.results[0].outbound[0].flights[0].departs_at)
+          console.log(data.results[0].outbound[0].flights[0].arrives_at)
+          console.log(data.results[0].outbound[0].flights[0].origin.airport)
+          console.log(data.results[0].outbound[0].flights[0].origin.terminal)
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
 
         })
 }
@@ -420,9 +509,14 @@ getAllInfoFlights = function(data) {
 
 $('#submit3').click(function(event) {
     event.preventDefault();
+<<<<<<< HEAD
         $("#body").css("background-image", "url('http://www.intrawallpaper.com/static/images/colorful-triangles-background_yB0qTG6.jpg')");
     $(".opaque").hide();
     $('#homeNav').hide();
+=======
+    $("#body").css("background-image", "url('http://www.intrawallpaper.com/static/images/colorful-triangles-background_yB0qTG6.jpg')");
+    $(".opaque").hide();
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
     HOTELLOCATION = $('#hotellocation').val()
     HOTELCHECKINDATE = $('#checkin').val()
     HOTELCHECKOUTDATE = $('#checkout').val()
@@ -432,9 +526,15 @@ $('#submit3').click(function(event) {
 
 appendAllHotelInfo = function(data){
   for(i=0;i<10;i++){
+<<<<<<< HEAD
     resultDiv = $('<div></div>')
     results = $('<ul class="list-unstyled"></ul>');
     itemName = $('<li></li>');
+=======
+    resultDiv = $('<div class="col-md-3 col-md-offset-2 opaque2 whtTxt"></div>')
+    results = $('<ul class="list-unstyled"></ul>');
+
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
     name = data.results[i].property_name
     addressLine1 = data.results[i].address.line1
     addressLine2 = data.results[i].address.city
@@ -443,6 +543,7 @@ appendAllHotelInfo = function(data){
     addressLine5 = data.results[i].address.country
     itemPricee = data.results[i].min_daily_rate.amount
     itemContactt = data.results[i].contacts[0].detail
+<<<<<<< HEAD
     nameparams = name.replace(/ /g, '')
     addressLine1Params = addressLine1.replace(/ /g, '')
     addressLine2Params = addressLine2.replace(/ /g, '')
@@ -458,6 +559,9 @@ appendAllHotelInfo = function(data){
 
     itemName.append(namelist)
     results.append(itemName)
+=======
+
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
     results.append('<li>' + 'Hotel: ' + name + '</li>');
     results.append('<li>' + 'Address: ' + addressLine1+ '<br>'
       + addressLine2 + ', ' + addressLine3 + '<br>' + addressLine4 +
@@ -472,8 +576,11 @@ appendAllHotelInfo = function(data){
 }
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
 var randomizeBackground= function(){
     var images = ["http://cdn.wonderfulengineering.com/wp-content/uploads/2016/01/Philippines-Wallpaper.jpg","http://www.cnac.gob.ve/filmcommission/images/boletines/2013-04/Alex.jpg","https://i.ytimg.com/vi/EvmWqPR06zY/maxresdefault.jpg","http://travelchannel.sndimg.com/content/dam/images/travel/fullset/2015/09/15/family-mountain-vacation-lake-louise.jpg.rend.tccom.1280.960.jpeg","http://www.keribrownhomes.com/wp-content/uploads/2016/07/vacation-house-design-with-wooden-wall-surrounded-by-snow.jpg","http://chainimage.com/images/england-scotland-ireland-tour-luxury-uk-vacation-zicasso.jpg","http://www.daviddanielsphotography.com/wp-content/uploads/2013/12/san-franciscos-golden-gate-bridge-with-a-new-sky.jpg" ]
     $('#body').css({'background-image': 'url(' + images[Math.floor(Math.random() * images.length)] + ')'});
@@ -483,8 +590,13 @@ randomizeBackground()
 
 var divToggle = function(){
 $(".toggle").click(function() {
+<<<<<<< HEAD
     var $toggled = $(this).attr('href');
     $('#whatev').hide();
+=======
+    $('#whatev').hide()
+    var $toggled = $(this).attr('href');
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
     $($toggled).siblings(':visible').hide();
     $($toggled).toggle("slide", {direction: 'up'}, 750);
     return false;
@@ -492,7 +604,44 @@ $(".toggle").click(function() {
   };
 divToggle()
 
+<<<<<<< HEAD
 
+=======
+/*
+var calendarOptions = function(){
+    var dateFormat = "yyyy/mm/dd",
+      from = $( "#departuredate, #checkin" )
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = $( "#duration, #checkout" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+
+      return date;
+    }
+}
+calendarOptions()
+*/
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
 var getLocation = function(){
            $(function() {
             $( "#origin, #hotellocation, #destination, #location, #attractionlocation" ).autocomplete({
@@ -503,3 +652,9 @@ var getLocation = function(){
   }
 getLocation()
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
