@@ -16,7 +16,7 @@ var multiwordLocation = function(location){
     }
 }
 
-var eventUrl = 'http://api.eventful.com/rest/events/search?...&keywords='+$eventKeyword+'&location='+multiwordLocation($eventLocation)+'&date='+$eventDate+'&app_key=bBnC2nhp4zqNBB4w'
+var eventUrl = 'http://api.eventful.com/rest/events/search?...&keywords='+$eventKeyword+'&location='+multiwordLocation($eventLocation)+'&date='+$eventDate+'&app_key=<APIKEY>'
 console.log(eventUrl)
 $.ajax({
   type: "POST",
@@ -81,7 +81,7 @@ results = $('<ul class="list-unstyled"></ul>');
 }
 getAllInfoFourSquare = function(data) {
     $.ajax({
-            url: "https://api.foursquare.com/v2/venues/explore?client_id=ZNEGNE4KLQ5OW03GEGIIDCS0XCZFCQE01S04NJVAN5R5LPCY&client_secret=CYYND5AXCAJ1SMQDNPZBHODBX1OEX3SQY4RBLPQKDAPXHQGT&near="+ll+"&sortByDistance=1&radius=500&query="+category+"&v=20161124&m=foursquare",
+            url: "https://api.foursquare.com/v2/venues/explore?client_id=<clientID>&client_secret=<Client Secret>&near="+ll+"&sortByDistance=1&radius=500&query="+category+"&v=20161124&m=foursquare",
             method: 'GET'
         })
         .done(function(data) {
@@ -92,7 +92,7 @@ getAllInfoFourSquare = function(data) {
 }
 getAllInfoAttraction = function(data) {
     $.ajax({
-            url: "https://api.foursquare.com/v2/venues/explore?client_id=ZNEGNE4KLQ5OW03GEGIIDCS0XCZFCQE01S04NJVAN5R5LPCY&client_secret=CYYND5AXCAJ1SMQDNPZBHODBX1OEX3SQY4RBLPQKDAPXHQGT&near="+ll+"&sortByDistance=1&radius=500&query="+category+"&v=20161124&m=foursquare",
+            url: "https://api.foursquare.com/v2/venues/explore?client_id=<client ID>&client_secret=<Client Secret>&near="+ll+"&sortByDistance=1&radius=500&query="+category+"&v=20161124&m=foursquare",
             method: 'GET'
         })
         .done(function(data) {
@@ -403,7 +403,7 @@ getAllInfoHotel = function(data) {
 
 getAllInfoFlights = function(data) {
     $.ajax({
-            url: "http://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=qzex7QQAbrN1YS9N7nDo2TQDlENnACs8&origin="+ORIGINNEW+
+            url: "http://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=<API KEY>&origin="+ORIGINNEW+
             "&destination="+DESTINATIONNEW+"&departure_date="+DATE4+"&return_date="+RETURNDATE4+
             "&adults="+ADULTS+"&children="+CHILDREN+"&nonstop=true&max_price="+MAXPRICE+"&one-way=false&number_of_results=10",
             method: 'GET'
