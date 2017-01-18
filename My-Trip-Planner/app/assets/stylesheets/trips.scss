@@ -1,0 +1,50 @@
+// Place all the styles related to the trips controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.opaque{
+  background-color: black;
+  height: 400px;
+  width: 700px;
+  opacity: .7;
+  padding:20px;
+  border-radius: 10px;}
+
+.whtTxt{
+  color: white;
+  opacity: 1;}
+
+.center{
+  text-align:center;}
+
+input[type=search] {
+  width:120px;
+  text-align: center;}
+  .info-panel{
+    display:none;}
+
+.opaque2{
+  background-color: black;
+  height: auto;
+  opacity: .7;
+  padding:20px;
+  border-radius: 20px;
+  margin:10px;
+}
+body{
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.padding{
+padding-left: 10px;
+}
+
+ul{
+  list-style: none;
+}
+
+.devise{
+  background-color: white;
+}

@@ -1,0 +1,22 @@
+<%=@restaurantname3  %><br>
+<%=@address3  %><br>
+<%=@reviewURL3  %>
+
+
+<form action='/restaurants' method='POST'>
+  <h2>Add a restaurant:</h2>
+  <label>Name</label><br>
+    <input name='name' value='<%=@restaurantname3  %>'><br>
+  <label>Address</label><br>
+    <input name='address' value = '<%=@address3  %>'><br>
+  <label>FourSquare URL</label><br>
+    <input name='restaurant_url' value='<%= @reviewURL3  %>'><br>
+      <label>Description/Comments</label><br>
+    <input name='restaurant_url' value='Add your comments or description here!'><br>
+
+    <select name = "trip">
+    <% @trips.each do |trip|  %>
+     <option name="trip"><%= trip['trip_name']  %></option>
+     <% end %>
+     </select>
+  <button>Submit</button>

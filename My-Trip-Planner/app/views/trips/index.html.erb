@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Travel App</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+  </head>
+  <%= javascript_include_tag "scipt" %>
+  <%= stylesheet_link_tag "trips" %>
+  <body id="body">
+    <div class="container-fluid">
+    <a href="/trips/show"> See all trips </a>
+    <div class="row">
+      <%= render 'shared/header' %>
+      <%= render 'searchbox' %>
+      <%= render 'flights_panel' %>
+      <%= render 'food_panel' %>
+      <%= render 'hotels_panel' %>
+      <%= render 'attractions_panel' %>
+      <%= render 'events_panel' %>
+
+  </div>
+  </div>
+
+    <%= javascript_include_tag "script" %>
+       <%= javascript_include_tag "availableCities" %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>

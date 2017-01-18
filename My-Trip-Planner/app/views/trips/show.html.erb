@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Trips</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<%= stylesheet_link_tag "yourtrips" %>
+</head>
+<body>
+<%= render 'shared/header' %>
+<div class="header">
+ <h1>See the trips you've planned today.</h1><br>
+ <h1>Go on an adventure tomorrow.</h1>
+
+
+</div>
+<div class="description">
+<p>See the trips you have planned below</p>
+<p>To create a new trip, <a href='/trips/new'> click here.</a></p>
+<p>To add flights, hotels, and more <a href='/trips'> click here.</a></p>
+</div>
+<hr>
+
+
+
+
+<% @trips.each do |trip|  %>
+<div class="tripname">
+    <h1 class="trip-name"><%= trip['trip_name']  %></h1>
+        <p>Location: <%= trip['locations']  %></p>
+     <%= button_to 'Delete This Trip', trip, method: :delete %><br>
+       </div>
+<div class="tripdetails">
+<p>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" id="<%= trip['trip_name']  %>" data-target="#collapse<%= trip['trip_name'][0]  %><%= trip['trip_name'][1]  %><%= trip['trip_name'][2]  %><%= trip['trip_name'][3]  %>" aria-expanded="false" aria-controls="<%= trip['trip_name']  %>">
+    Flight Info
+  </button>
+</p>
+
+<div class="collapse" id="collapse<%= trip['trip_name'][0]  %><%= trip['trip_name'][1]  %><%= trip['trip_name'][2]  %><%= trip['trip_name'][3]  %>" id="<%= trip['trip_name']  %>">
+  <div class="card card-block">
+      <% @subFlight = @flights.where(trip_id: trip['id']) %>
+            <% @subFlight.each do |flight| %>
+            <p>Price is <%=flight['price']  %></p>
+            <p>ID is <%=flight['id']  %></p>
+            <p>Departure time and date (from origin) <%=flight ['departuredate_time']  %></p>
+            <p>Arrival time and date (to destination) <%=flight ['arrivaldate_time']  %></p>
+            <p>Flight class (to destination) <%=flight ['flightclass']  %></p>
+            <p>Departure airport (from origin to destination)<%=flight ['departure_airport']  %></p>
+            <p>Arrival airport (from origin to destination)<%=flight ['arrival_airport']  %></p>
+            <p>Flight number (from origin to destination)<%=flight ['flight_number']  %></p>
+            <p>Airline (from origin to destination)<%=flight ['airline']  %></p>
+            <p>Departure time (from destination to origin)<%=flight ['returnairportdepart']  %></p>
+            <p>Arrival airport (from destination to origin)<%=flight ['returnairportarrive']  %></p>
+            <p>Arrival airline (from destination to origin)<%=flight ['airlinereturn']  %></p>
+            <p>Arrival flight number (from destination to origin)<%=flight ['flightnumberreturn']  %></p>
+              <%= button_to 'Delete me', flight, method: :delete %><br>
+
+    <% end %>
+   </div>
+</div>
+
+
+<p>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" id="<%= trip['trip_name']  %>" data-target="#collapseOne<%= trip['trip_name'][0]  %><%= trip['trip_name'][1]  %><%= trip['trip_name'][2]  %><%= trip['trip_name'][3]  %>" aria-expanded="false" aria-controls="<%= trip['trip_name']  %>">
+    Restaurants to Visit
+  </button>
+</p>
+
+<div class="collapse" id="collapseOne<%= trip['trip_name'][0]  %><%= trip['trip_name'][1]  %><%= trip['trip_name'][2]  %><%= trip['trip_name'][3]  %>" id="<%= trip['trip_name']  %>">
+  <div class="card card-block">
+         <% @subRest = @restaurant.where(trip_id: trip['id']) %>
+            <% @subRest.each do |rest| %>
+            <p>Name is <%=rest['name']  %></p>
+            <p>Address is <%=rest['address']  %></p>
+            <p>Full review: <%=rest['restaurant_url']  %></p>
+            <p>Your comments: <%=rest['description']  %></p>
+            <%= button_to 'Delete me', rest, method: :delete %><br>
+     <% end %>
+   </div>
+</div>
+
+<p>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" id="<%= trip['trip_name']  %>" data-target="#collapseTwo<%= trip['trip_name'][0]  %><%= trip['trip_name'][1]  %><%= trip['trip_name'][2]  %><%= trip['trip_name'][3]  %>" aria-expanded="false" aria-controls="<%= trip['trip_name']  %>">
+   Attractions to See
+  </button>
+</p>
+
+<div class="collapse" id="collapseTwo<%= trip['trip_name'][0]  %><%= trip['trip_name'][1]  %><%= trip['trip_name'][2]  %><%= trip['trip_name'][3]  %>" id="<%= trip['trip_name']  %>">
+  <div class="card card-block">
+      <% @subAttraction = @attraction.where(trip_id: trip['id']) %>
+    <% @subAttraction.each do |attraction| %>
+    <p>Name is <%=attraction['name']  %></p>
+    <p>Address is <%=attraction['address']  %></p>
+    <p>Full review: <%=attraction['restaurant_url']  %></p>
+    <p>Your comments: <%=attraction['description']  %></p>
+
+      <%= button_to 'Delete me', attraction, method: :delete %><br>
+
+     <% end %>
+    </div>
+</div>
+
+
+<p>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" id="<%= trip['trip_name']  %>" data-target="#collapseFour<%= trip['trip_name'][0]  %><%= trip['trip_name'][1]  %><%= trip['trip_name'][2]  %><%= trip['trip_name'][3]  %>" aria-expanded="false" aria-controls="<%= trip['trip_name']  %>">
+   Hotels to Book
+  </button>
+</p>
+
+<div class="collapse" id="collapseFour<%= trip['trip_name'][0]  %><%= trip['trip_name'][1]  %><%= trip['trip_name'][2]  %><%= trip['trip_name'][3]  %>" id="<%= trip['trip_name']  %>">
+  <div class="card card-block">
+      <% @subHotel = @hotel.where(trip_id: trip['id']) %>
+    <% @subHotel.each do |hotel| %>
+    <p>Name is <%=hotel['name']  %></p>
+    <p>Address is <%=hotel['address']  %></p>
+    <p>Phone: <%=hotel['phone']  %></p>
+    <p>Rate: <%=hotel['rate']  %></p>
+
+      <%= button_to 'Delete me', hotel, method: :delete %><br>
+
+     <% end %>
+    </div>
+</div>
+     <% end %>
+
+</div>
+
+
+</body>
+
+</html>
+
+
+

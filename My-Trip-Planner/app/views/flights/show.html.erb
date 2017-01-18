@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Your Flight</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<h1 class="add">Add Your Flight</h1>
+</div>
+</div>
+</div>
+<form action='/flights' method='POST'>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<div class="form-group">
+    <label>Full Price</label><br>
+    <input name='price' class="form-control" value='<%=@price  %>'><br>
+</div>
+<div class="form-group">
+    <label>Departure time and date (from origin)</label><br>
+    <input name='departuredate_time' class="form-control" value='<%=@dateofdeparturefromorigin4  %>'><br>
+</div>
+<div class="form-group">
+    <label>Arrival time and date (to destination)</label><br>
+    <input name='arrivaldate_time' class="form-control" value='<%=@dateofarrivaltodestination4  %>'><br>
+</div>
+<div class="form-group">
+    <label>Flight class (to destination)</label><br>
+    <input name='flightclass' class="form-control" value='<%=@classofflighttodestination%>'><br>
+</div>
+<div class="form-group">
+    <label>Departure airport (from origin to destination)</label><br>
+    <input name='departure_airport' class="form-control" value='<%=@airportyouleavefromtogettodestination%>'><br>
+</div>
+<div class="form-group">
+    <label>Arrival airport (from origin to destination)</label><br>
+    <input name='arrival_airport' class="form-control" value='<%=@arrivaleairporttodestination%>'><br>
+</div>
+<div class="form-group">
+    <label>Flight number (from origin to destination)</label><br>
+    <input name='flight_number' class="form-control" value='<%=@todestinationflightnumber%>'><br>
+</div>
+<div class="form-group">
+    <label>Airline (from origin to destination)</label><br>
+    <input name='airline' class="form-control" value='<%=@outboundairline%>'><br>
+</div>
+<div class="form-group">
+    <label>Departure time (from destination to origin)</label><br>
+    <input name='returnleavedate' class="form-control" value='<%=@departuretimefromdestination4  %>'><br>
+</div>
+<div class="form-group">
+    <label>Arrival time (from destination to origin)</label><br>
+    <input name='returnarrivaldate' class="form-control" value='<%=@arrivaltimefromdestination4  %>'><br>
+</div>
+<div class="form-group">
+    <label>Flight class (from destination)</label><br>
+    <input name='classreturn' class="form-control" value='<%=@classofflightfromdestination%>'><br>
+</div>
+<div class="form-group">
+    <label>Departure airport (from destination to origin)</label><br>
+    <input name='returnairportdepart' class="form-control" value='<%=@departureairportfromdestination%>'><br>
+</div>
+<div class="form-group">
+    <label>Arrival airport (from destination to origin)</label><br>
+    <input name='returnairportarrive' class="form-control" value='<%=@arrivalairportfromdestination%>'><br>
+</div>
+<div class="form-group">
+    <label>Arrival airline (from destination to origin)</label><br>
+    <input name='airlinereturn' class="form-control" value='<%=@inboundairline%>'><br>
+</div>
+<div class="form-group">
+    <label>Arrival flight number (from destination to origin)</label><br>
+    <input name='flightnumberreturn' class="form-control" value='<%=@flighnumberfromdestination%>'><br>
+</div>
+<div class="form-group">
+    <select name = "trip">
+    <% @trips.each do |trip|  %>
+     <option name="trip"><%= trip['trip_name']  %></option>
+
+     <% end %>
+     </div>
+     </select>
+     <br>
+     <br>
+
+  <button>Submit</button>
+</form>
+</div>
+</div>
+</div>
+<a href="/trips">Go Home</a>
+
+
+
+</body>
+</html>
+
+

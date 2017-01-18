@@ -1,0 +1,71 @@
+/* line 4, /Users/MichelleBrant/Desktop/TP_practice/app/assets/stylesheets/trips.scss */
+.opaque {
+  background-color: black;
+  height: 400px;
+  width: 700px;
+  opacity: .7;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* line 12, /Users/MichelleBrant/Desktop/TP_practice/app/assets/stylesheets/trips.scss */
+.whtTxt {
+  color: white;
+  opacity: 1;
+}
+
+/* line 16, /Users/MichelleBrant/Desktop/TP_practice/app/assets/stylesheets/trips.scss */
+.center {
+  text-align: center;
+}
+
+/* line 19, /Users/MichelleBrant/Desktop/TP_practice/app/assets/stylesheets/trips.scss */
+input[type=search] {
+  width: 120px;
+  text-align: center;
+}
+
+/* line 22, /Users/MichelleBrant/Desktop/TP_practice/app/assets/stylesheets/trips.scss */
+.info-panel {
+  display: none;
+}
+
+/* line 25, /Users/MichelleBrant/Desktop/TP_practice/app/assets/stylesheets/trips.scss */
+.opaque2 {
+  background-color: black;
+  height: auto;
+  opacity: .7;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+/* line 33, /Users/MichelleBrant/Desktop/TP_practice/app/assets/stylesheets/trips.scss */
+body {
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* line 40, /Users/MichelleBrant/Desktop/TP_practice/app/assets/stylesheets/trips.scss */
+.padding {
+  padding-left: 10px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+

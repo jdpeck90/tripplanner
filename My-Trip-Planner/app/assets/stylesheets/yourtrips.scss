@@ -1,0 +1,41 @@
+.header{
+background: image_url("adventure.jpg") no-repeat;
+background-size: 100%;
+margin-top: -20px;
+padding: 0px;
+height: 400px;
+text-align:center;
+}
+
+.header h1{
+  padding: 30px;
+  margin: 0px;
+}
+
+body{
+margin: 0px;
+padding: 0px;
+background-color: white;
+font-family: 'Montserrat', sans-serif;
+}
+
+.description{
+  margin-top: 20px;
+  text-align: center;
+}
+
+p{
+  margin: 10px;
+}
+
+.trip-name{
+  font-weight: bold;
+}
+
+.tripname{
+  text-align:center;
+}
+
+.tripdetails{
+  text-align:center;
+}

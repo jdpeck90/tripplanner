@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  trip_id: one
+  address: MyString
+  rating: 1
+  price: MyString
+  restaurant_url: MyString
+  description: MyText
+
+two:
+  name: MyString
+  trip_id: two
+  address: MyString
+  rating: 1
+  price: MyString
+  restaurant_url: MyString
+  description: MyText
