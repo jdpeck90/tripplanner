@@ -30,13 +30,13 @@ ActiveRecord::Schema.define(version: 20161222000916) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
-    t.string   "address"
-    t.string   "date"
-    t.string   "time"
-    t.text     "event_url"
+    t.string   "location"
+    t.text     "description"
+    t.string   "image"
+    t.string   "URL"
     t.integer  "trip_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["trip_id"], name: "index_events_on_trip_id", using: :btree
   end
 

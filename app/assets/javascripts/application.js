@@ -16,7 +16,3 @@
 //= require turbolinks
 //= require_tree .
 //=require script
-<<<<<<< HEAD
-=======
-//= require jquery-ui
->>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63

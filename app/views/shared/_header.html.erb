@@ -2,12 +2,8 @@
       <div class="row">
         <div class="col-md-12">
           <div class="page-header">
-<<<<<<< HEAD
             <h1 class="padding">
-=======
-            <h1>
->>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
-              TravelApp <small class=" whtTxt">For travel</small>
+              TravelApp <small class=" whtTxt">Plan your next adventure</small>
             </h1>
           </div>
         </div>
@@ -19,17 +15,13 @@
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
              <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-<<<<<<< HEAD
-          </button> <a class="navbar-brand" href="javascript:window.location.href=window.location.href">Home</a>
+          </button> <a class="navbar-brand" href="/trips">Home</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav" id ="homeNav">
-=======
-          </button> <a class="navbar-brand" href="#">Home</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
->>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
+          <li>
+              <a href="/trips/show">Your Trips</a>
+            </li>
             <li>
               <a class="toggle" href="#panel-one">Flights</a>
             </li>
@@ -49,27 +41,13 @@
               <% if user_signed_in? %>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-<<<<<<< HEAD
-               <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Account<strong class="caret"></strong></a>
-=======
                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<strong class="caret"></strong></a>
->>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
               <ul class="dropdown-menu">
                 <li>
                   <a href="#">Profile</a>
                 </li>
                 <li>
-<<<<<<< HEAD
-                  <%= link_to "Create New Trip", new_trip_path %>
-                </li>
-                <li>
-                  <a href="/trips/show" class="whtTxt"> See all trips </a><br>
-                </li>
-                <li>
-                  <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
-=======
                   <%= link_to "Sign_out", destroy_user_session_path, :method => 'delete' %>
->>>>>>> a9d173e4a4f32257df6645d7a032b0e028ea3f63
                 </li>
                 <li class="divider"></li>
                 <li>

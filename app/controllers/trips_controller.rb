@@ -13,8 +13,8 @@ def show
   @restaurant = Restaurant.all
   @hotel = Hotel.all
   @attraction = Attraction.all
-  @event = Event.all
 end
+
 
   def create
 
