@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Plan Your Next Adventure </title>
+  <title>Plan Your Next Adventure - TEST</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
+<%= stylesheet_link_tag "users" %>
+
 <div class='devise'>
 <body>
 <div class='header'>
@@ -14,20 +16,21 @@
 <div class="container">
     <div class="row">
     <div class="col-md-8 col-md-offset-2">
-    <h1>Plan Your Next Adventure</h1>
+    <div class="opaque">
+    <h1 class="whtTxt">Plan Your Next Adventure - TEST</h1>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+  <div class="field whtTxt">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-  <div class="field">
+  <div class="field whtTxt">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="field">
+    <div class="field whtTxt">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
@@ -42,6 +45,7 @@
 
 <%= render "devise/shared/links" %>
 
+</div>
 </div>
 </div>
 </div>

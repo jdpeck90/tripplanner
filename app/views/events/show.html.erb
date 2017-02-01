@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Your Event</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<%= stylesheet_link_tag "users" %>
+</head>
+<body>
+<%= render 'shared/header' %>
+<div class="opaque-event-show ">
+<form action='/events' method='POST'>
+  <h2>Add an event:</h2>
+  <label>Name</label><br>
+    <input name='name' class='form-control' value='<%= @eventName  %>'><br>
+  <label>Address</label><br>
+    <input name='address' class='form-control' value = '<%= @eventLocation %>'><br>
+  <label>Date</label><br>
+    <input name='date' class='form-control' value='<%= @eventDate %>'><br>
+  <label>Time</label><br>
+    <input name='time' class='form-control' value = '<%= @eventTime  %>'><br>
+  <label>Url</label><br>
+    <input name='event_url' class='form-control' value = '<%= @eventUrl  %>'><br>
+  <label>Pick a trip to add to</label><br>
+  <select name = "trip">
+    <% @trips.each do |trip|  %>
+     <option name="trip"><%= trip['trip_name']  %></option>
+
+     <% end %>
+     </select>
+
+  <button>Submit</button>
+   </form>
+     </div>
+<a href="/trips">Go Home</a>
+<%= javascript_include_tag "randomBackground" %>
+
+</body>
+</html>

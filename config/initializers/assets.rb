@@ -8,7 +8,8 @@ Rails.application.config.assets.precompile += %w( yourtrips.css )
 Rails.application.config.assets.precompile += %w( trips.css )
 Rails.application.config.assets.precompile += %w( bsscript.js )
 Rails.application.config.assets.precompile += %w( names.js )
-
+Rails.application.config.assets.precompile += %w( users.css )
+Rails.application.config.assets.precompile += %w( randomBackground.js )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 

@@ -1,25 +1,37 @@
-<%=@address  %>
-
-<h1>HI</h1>
-<%=@ID  %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Your Hotel</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<%= stylesheet_link_tag "users" %>
+</head>
+<body>
+<%= render 'shared/header' %>
+<div class="opaque-event-show">
 <form action='/hotels' method='POST'>
-  <h2>Add a hotel:</h2>
-  <label>Name</label><br>
-    <input name='name' value='<%=@hotelname3  %>'><br>
-  <label>Address</label><br>
-    <input name='address' value = '<%=@address3  %>'><br>
-  <label>Rate</label><br>
-    <input name='rate' value='<%= @rate  %>'><br>
-  <label>Phone Number</label><br>
-    <input name='phone' value = '<%=@phone  %>'><br>
-     <label>Pick a trip to add to</label><br>
-    <select name = "trip">
-    <% @trips.each do |trip|  %>
-     <option name="trip"><%= trip['trip_name']  %></option>
-     <% end %>
-     </select>
+  <h2>Add Your Hotel</h2>
+    <label>Name</label><br>
+      <input name='name' class="form-control" value='<%=@hotelname3  %>'><br>
+    <label>Address</label><br>
+      <input name='address' class="form-control" value = '<%=@address3  %>'><br>
+    <label>Rate</label><br>
+      <input name='rate' class="form-control" value='<%= @rate  %>'><br>
+    <label>Phone Number</label><br>
+      <input name='phone' class="form-control" value = '<%=@phone  %>'><br>
+       <label>Pick a trip to add to</label><br>
+      <select name = "trip">
+      <% @trips.each do |trip|  %>
+       <option name="trip"><%= trip['trip_name']  %></option>
+       <% end %>
+       </select>
 
   <button>Submit</button>
 </form>
+</div>
 <a href="/trips">Go Home</a>
+</body>
+</html>
+
 

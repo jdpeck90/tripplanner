@@ -8,7 +8,7 @@
 </head>
 <body>
 <%= render 'shared/header' %>
-<div class="header">
+<div class="header shorten">
  <h1>See the trips you've planned today.</h1><br>
  <h1>Go on an adventure tomorrow.</h1>
 
@@ -23,8 +23,8 @@
 
 
 
-
 <% @trips.each do |trip|  %>
+<div class="tripcontainer">
 <div class="tripname">
     <h1 class="trip-name"><%= trip['trip_name']  %></h1>
         <p>Location: <%= trip['locations']  %></p>
@@ -41,6 +41,8 @@
   <div class="card card-block">
       <% @subFlight = @flights.where(trip_id: trip['id']) %>
             <% @subFlight.each do |flight| %>
+            p @subFlight
+            p flight
             <p>Price is <%=flight['price']  %></p>
             <p>ID is <%=flight['id']  %></p>
             <p>Departure time and date (from origin) <%=flight ['departuredate_time']  %></p>
@@ -122,9 +124,12 @@
      <% end %>
     </div>
 </div>
+</div>
+</div>
      <% end %>
 
-</div>
+
+
 
 
 </body>

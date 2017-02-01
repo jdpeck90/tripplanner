@@ -1,9 +1,8 @@
 .header{
-background: image_url("adventure.jpg") no-repeat;
-background-size: 100%;
+
 margin-top: -20px;
 padding: 0px;
-height: 400px;
+height: 200px;
 text-align:center;
 }
 
@@ -13,6 +12,10 @@ text-align:center;
 }
 
 body{
+background: image_url("adventure.jpg") no-repeat;
+background-position-y: 24%;
+margin: 0px;
+background-position-x: 66%;
 margin: 0px;
 padding: 0px;
 background-color: white;
@@ -35,7 +38,15 @@ p{
 .tripname{
   text-align:center;
 }
-
+.tripcontainer {
+float: left;
+margin-left: 4%;
+}
 .tripdetails{
   text-align:center;
+}
+
+.navbar-right {
+    float: right!important;
+    margin-right: 0px;
 }

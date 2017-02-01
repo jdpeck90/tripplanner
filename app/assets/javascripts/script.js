@@ -15,8 +15,8 @@ var multiwordLocation = function(location){
       return location
     }
 }
-
-var eventUrl = 'http://api.eventful.com/rest/events/search?...&keywords='+$eventKeyword+'&location='+multiwordLocation($eventLocation)+'&date='+$eventDate+'&app_key=<APIKEY>'
+var eventfulAPIKey = '9NhHFJPdNDHx5rTH'
+var eventUrl = 'http://api.eventful.com/rest/events/search?...&keywords='+$eventKeyword+'&location='+multiwordLocation($eventLocation)+'&date='+$eventDate+'&app_key='+eventfulAPIKey
 console.log(eventUrl)
 $.ajax({
   type: "POST",
@@ -79,9 +79,13 @@ results = $('<ul class="list-unstyled"></ul>');
   counter++
   }
 }
+
+var clientID = 'ZNEGNE4KLQ5OW03GEGIIDCS0XCZFCQE01S04NJVAN5R5LPCY';
+var clientSecret = 'CYYND5AXCAJ1SMQDNPZBHODBX1OEX3SQY4RBLPQKDAPXHQGT';
+
 getAllInfoFourSquare = function(data) {
     $.ajax({
-            url: "https://api.foursquare.com/v2/venues/explore?client_id=<clientID>&client_secret=<Client Secret>&near="+ll+"&sortByDistance=1&radius=500&query="+category+"&v=20161124&m=foursquare",
+            url: "https://api.foursquare.com/v2/venues/explore?client_id="+clientID+"&client_secret="+clientSecret+"&near="+ll+"&sortByDistance=1&radius=500&query="+category+"&v=20161124&m=foursquare",
             method: 'GET'
         })
         .done(function(data) {
@@ -92,7 +96,7 @@ getAllInfoFourSquare = function(data) {
 }
 getAllInfoAttraction = function(data) {
     $.ajax({
-            url: "https://api.foursquare.com/v2/venues/explore?client_id=<client ID>&client_secret=<Client Secret>&near="+ll+"&sortByDistance=1&radius=500&query="+category+"&v=20161124&m=foursquare",
+            url: "https://api.foursquare.com/v2/venues/explore?client_id="+clientID+"&client_secret="+clientSecret+"&near="+ll+"&sortByDistance=1&radius=500&query="+category+"&v=20161124&m=foursquare",
             method: 'GET'
         })
         .done(function(data) {
@@ -206,9 +210,9 @@ appendResults = function(data){
 appendResultsAttraction = function(data){
   result = data.response.groups[0]
   for(i=0;i<10;i++){
-    resultDiv = $('<div class="col-md-6"></div>')
-    results = $('<ul></ul>');
-    item = $('<li></li>');
+   resultDiv = $('<div class="col-md-3 col-md-offset-2 opaque2 whtTxt"></div>')
+    results = $('<ul class="list-unstyled"></ul>');
+    item = $('<li><strong></strong></li><br>');
     itemAddress1 = $('<li></li>');
     itemAddress2 = $('<li></li>');
     itemAddress3 = $('<li></li>');
@@ -382,30 +386,29 @@ $('#submit2').click(function(event) {
 
 
 })
-
+var hotelAPI = 'u7QqBeYSCxXTUFAgzqVVBSAI5tr9az40';
 getAllInfoHotel = function(data) {
     $.ajax({
-            url: "https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?apikey=qzex7QQAbrN1YS9N7nDo2TQDlENnACs8&location="
-            +HOTELLOCATIONNEW+"&check_in="+HOTELCHECKINDATE+"&check_out="+HOTELCHECKOUTDATE+
-            "&radius=50&lang=EN&currency=USD&max_rate="+MAXRATE+
+            url: "https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?apikey="+hotelAPI+"&location="+HOTELLOCATIONNEW+"&check_in="+HOTELCHECKINDATE+"&check_out="+HOTELCHECKOUTDATE+"&radius=50&lang=EN&currency=USD&max_rate="+MAXRATE+
             "&number_of_results=10&all_rooms=true&show_sold_out=false",
             method: 'GET'
         })
         .done(function(data) {
-
+            console.log(data,'Hotel Data')
           appendAllHotelInfo(data)
-
-          // appendResultsAmadeus(data)
-
+        })
+        .fail(function(data){
+          appendError(data)
+             console.log(URL)
         })
 }
 
-
+var flightAPI = 'u7QqBeYSCxXTUFAgzqVVBSAI5tr9az40';
 getAllInfoFlights = function(data) {
     $.ajax({
-            url: "http://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=<API KEY>&origin="+ORIGINNEW+
+            url: "http://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?origin="+ORIGINNEW+
             "&destination="+DESTINATIONNEW+"&departure_date="+DATE4+"&return_date="+RETURNDATE4+
-            "&adults="+ADULTS+"&children="+CHILDREN+"&nonstop=true&max_price="+MAXPRICE+"&one-way=false&number_of_results=10",
+            "&adults="+ADULTS+"&children="+CHILDREN+"&nonstop=true&max_price="+MAXPRICE+"&one-way=false&number_of_results=10&apikey="+flightAPI,
             method: 'GET'
         })
         .done(function(data) {
@@ -445,8 +448,8 @@ $('#submit3').click(function(event) {
 
 appendAllHotelInfo = function(data){
   for(i=0;i<10;i++){
-    resultDiv = $('<div></div>')
-    results = $('<ul class="list-unstyled"></ul>');
+    resultDiv = $('<div class="col-md-3 col-md-offset-2 opaque2 whtTxt"></div>');
+    results = $('<ul></ul>');
     itemName = $('<li></li>');
     name = data.results[i].property_name
     addressLine1 = data.results[i].address.line1
@@ -496,6 +499,13 @@ var randomizeBackground= function(){
 
 randomizeBackground()
 
+var randomizeBackgroundSecondary = function(){
+  var images = ["https://static.tacdn.com/img2/vacationrentals/lander/premierGeos/001-florida-vacation-rentals.jpg", "https://www.jetblue.com/img/vacations/travelstyles/AllInclusive/All_Inc_960x420.jpg"]
+  $('#bodySec').css({'background-image': 'url(' + images[Math.floor(Math.random() * images.length)] + ')'});
+}
+
+randomizeBackgroundSecondary()
+
 var divToggle = function(){
 $(".toggle").click(function() {
     var $toggled = $(this).attr('href');
@@ -516,4 +526,8 @@ var getLocation = function(){
     });
   }
 getLocation()
+
+
+$("input[rel='tooltip']").tooltip();
+
 

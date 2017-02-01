@@ -2,6 +2,9 @@ class EventsController < ApplicationController
 
   def show
     id = params[:id]
+    p
+    p(id,'please work 1')
+    p 'please work 2'
     splitId = id.split(' ')
     title = splitId[0].split /(?=[A-Z])/
     @eventName = title.join(" ")

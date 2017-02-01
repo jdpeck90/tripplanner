@@ -1,18 +1,25 @@
- <%=@restaurantname3  %><br>
- <%=@address3  %><br>
- <%=@reviewURL3  %>
-
-
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Your Attractions</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<%= stylesheet_link_tag "users" %>
+</head>
+<body>
+<%= render 'shared/header' %>
+<div class="opaque-event-show">
  <form action='/attractions' method='POST'>
-   <h2>Add an attraction!:</h2>
+   <h2>Add An Attraction:</h2>
    <label>Name</label><br>
-     <input name='name' value='<%=@restaurantname3  %>'><br>
+     <input name='name' class='form-control' value='<%=@restaurantname3  %>'><br>
    <label>Address</label><br>
-     <input name='address' value = '<%=@address3  %>'><br>
+     <input name='address' class='form-control' value = '<%=@address3  %>'><br>
    <label>FourSquare URL</label><br>
-     <input name='restaurant_url' value='<%= @reviewURL3  %>'><br>
+     <input name='restaurant_url' class='form-control' value='<%= @reviewURL3  %>'><br>
        <label>Description/Comments</label><br>
-     <input name='restaurant_url' value='Add your comments or description here!'><br>
+     <input name='restaurant_url' class='form-control' value='Add your comments or description here!'><br>
 
      <select name = "trip">
      <% @trips.each do |trip|  %>
@@ -20,3 +27,8 @@
       <% end %>
       </select>
    <button>Submit</button>
+   </form>
+    </div>
+    <a href="/trips">Go Home</a>
+    </body>
+    </html>

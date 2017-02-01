@@ -1,8 +1,14 @@
-<%=@restaurantname3  %><br>
-<%=@address3  %><br>
-<%=@reviewURL3  %>
-
-
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Trips</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<%= stylesheet_link_tag "users" %>
+</head>
+<body id="bodySec">
+<%= render 'shared/header' %>
+<div class="opaque-event-show">
 <form action='/restaurants' method='POST'>
   <h2>Add a restaurant:</h2>
   <label>Name</label><br>
@@ -20,3 +26,9 @@
      <% end %>
      </select>
   <button>Submit</button>
+<a href="/trips">Go Home</a>
+<%= javascript_include_tag "randomBackground" %>
+
+</div>
+</body>
+</html>
