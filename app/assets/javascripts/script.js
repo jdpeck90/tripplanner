@@ -15,7 +15,7 @@ var multiwordLocation = function(location){
       return location
     }
 }
-var eventfulAPIKey = '9NhHFJPdNDHx5rTH'
+var eventfulAPIKey = ''
 var eventUrl = 'http://api.eventful.com/rest/events/search?...&keywords='+$eventKeyword+'&location='+multiwordLocation($eventLocation)+'&date='+$eventDate+'&app_key='+eventfulAPIKey
 console.log(eventUrl)
 $.ajax({
@@ -80,8 +80,8 @@ results = $('<ul class="list-unstyled"></ul>');
   }
 }
 
-var clientID = 'ZNEGNE4KLQ5OW03GEGIIDCS0XCZFCQE01S04NJVAN5R5LPCY';
-var clientSecret = 'CYYND5AXCAJ1SMQDNPZBHODBX1OEX3SQY4RBLPQKDAPXHQGT';
+var clientID = ';
+var clientSecret = '
 
 getAllInfoFourSquare = function(data) {
     $.ajax({
@@ -386,7 +386,7 @@ $('#submit2').click(function(event) {
 
 
 })
-var hotelAPI = 'u7QqBeYSCxXTUFAgzqVVBSAI5tr9az40';
+var hotelAPI = '';
 getAllInfoHotel = function(data) {
     $.ajax({
             url: "https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?apikey="+hotelAPI+"&location="+HOTELLOCATIONNEW+"&check_in="+HOTELCHECKINDATE+"&check_out="+HOTELCHECKOUTDATE+"&radius=50&lang=EN&currency=USD&max_rate="+MAXRATE+
@@ -403,7 +403,7 @@ getAllInfoHotel = function(data) {
         })
 }
 
-var flightAPI = 'u7QqBeYSCxXTUFAgzqVVBSAI5tr9az40';
+var flightAPI = '';
 getAllInfoFlights = function(data) {
     $.ajax({
             url: "http://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?origin="+ORIGINNEW+
