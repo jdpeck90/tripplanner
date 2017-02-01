@@ -527,7 +527,15 @@ var getLocation = function(){
   }
 getLocation()
 
+$('.dropdown-toggle').dropdown()
 
+$('#goTrips').click(toTrips);
+var toTrips = function(){
+  console.log('a')
+  window.location.pathname.replace('/trips/show')
+    console.log('a')
+
+}
 $("input[rel='tooltip']").tooltip();
 
 

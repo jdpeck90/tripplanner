@@ -1,4 +1,16 @@
-<%= javascript_include_tag "names" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Your Flight</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<%= stylesheet_link_tag "users" %>
+    <%= javascript_include_tag "script" %>
+
+</head>
+<body>
+<%= render 'shared/header' %>
+<div class="opaque-event-show ">
 <form action='/trips' method='POST'>
   <h2>Add a trip:</h2>
       <label>locations</label><br>
@@ -8,8 +20,14 @@
     <input name='trip_name' id="name"><br>
 
 
-  <button id="submitbutton">Submit</button>
+  <button id="goTrips">Submit</button>
 </form>
-<a href="/trips">Go Home</a>
+<button class='go-home'><a href="/trips">Go Home</a></button>
 
-<h1 id="hi">LOLOL</h1>
+     </div>
+
+
+
+</body>
+</html>
+

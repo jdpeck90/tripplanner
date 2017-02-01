@@ -8,7 +8,11 @@ skip_before_action  :verify_authenticity_token
 end
 
 def show
+  p 'Trips/show'
+ @ID = params[:user_id]
+ p @ID
   @trips=Trip.all
+
   @flights = Flight.all
   @restaurant = Restaurant.all
   @hotel = Hotel.all
@@ -19,11 +23,12 @@ end
   def create
 
     @trip = Trip.create(
+                  user_id: params[:id],
                   locations: params[:locations],
                   trip_name: params[:trip_name])
 
     @trip.user = current_user
-    @trip.update(user_id: @trip.user[:id])
+        redirect_to "/trips/show"
 
   end
 
